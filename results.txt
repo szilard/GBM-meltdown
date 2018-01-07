@@ -1,0 +1,279 @@
+
+--------------------------------------
+
+
+
+$ uname -r
+4.4.0-78-generic
+
+
+
+
+https://github.com/szilard/benchm-ml/blob/master/1-linear/1b-glmnet.R
+
+
++   md <- glmnet( X_train, d_train$dep_delayed_15min, family = "binomial", lambda = 0)
++ })
+   user  system elapsed
+  5.744   3.372   5.723
+
+   user  system elapsed
+  5.280   3.416   5.252
+
+user  system elapsed
+  5.148   3.408   5.045
+  
+
+
+
+
+https://github.com/szilard/GBM-perf/blob/master/run/1-h2o.R
+
+
++   md <- h2o.gbm(x = Xnames, y = "dep_delayed_15min", training_frame = dx_train, distribution = "bernoulli",
++           ntrees = 100, max_depth = 10, learn_rate = 0.1, nbins = 100)
++ })
+  |======================================================================| 100%
+   user  system elapsed
+  0.448   0.004  28.344
+
+user  system elapsed
+  0.508   0.000  23.979
+
+user  system elapsed
+  0.360   0.008  23.756
+
+
+
+
+
+https://github.com/szilard/GBM-perf/blob/master/run/2-xgboost.R
+
+
++ md <- xgb.train(data = dxgb_train, nthread = n_proc, objective = "binary:logistic",
++             nround = 100, max_depth = 10, eta = 0.1)
++ })
+   user  system elapsed
+305.440   0.288  18.120
+
+user  system elapsed
+288.620   0.176  17.422
+
+   user  system elapsed
+311.472   0.176  18.171
+
+
+
+
+
+
+https://github.com/szilard/GBM-perf/blob/master/run/2b-xgboost-hist.R
+
+
++ md <- xgb.train(data = dxgb_train, nthread = n_proc, objective = "binary:logistic",
++             nround = 100, eta = 0.1,
++             tree_method = "hist", grow_policy = "lossguide",
++             max_depth = 0, max_leaves = 512)
++ })
+[13:52:35] Tree method is selected to be 'hist', which uses a single updater grow_fast_histmaker.
+   user  system elapsed
+633.032   0.384  20.909
+
+user  system elapsed
+644.184   0.436  21.417
+
+   user  system elapsed
+617.696   0.360  20.360
+
+
+
+
+https://github.com/szilard/GBM-perf/blob/master/run/3-lightgbm.R
+
+
+
+system.time({
+md <- lgb.train(data = dlgb_train, objective = "binary", 
+            nrounds = 100, num_leaves = 512, learning_rate = 0.1)
+})
+
+   user  system elapsed
+162.888   0.168   5.926
+
+   user  system elapsed
+161.432   0.116   5.798
+
+   user  system elapsed
+168.288   0.116   5.750
+
+
+
+--------------------------------------
+
+
+
+
+grep CONFIG_PAGE_TABLE_ISOLATION=y /boot/config-`uname -r` && echo "patched :)" || echo "unpatched :("
+grep cpu_insecure /proc/cpuinfo && echo "patched :)" || echo "unpatched :("
+dmesg | grep "Kernel/User page tables isolation: enabled" && echo "patched :)" || echo "unpatched :("
+
+
+--------------------------------------
+
+
+
+
+$ uname -r
+4.14.10-041410-generic
+
+
+ubuntu@ip-172-31-25-77:~$ grep CONFIG_PAGE_TABLE_ISOLATION=y /boot/config-`uname -r` && echo "patched :)" || echo "unpatched :("
+unpatched :(
+ubuntu@ip-172-31-25-77:~$ grep cpu_insecure /proc/cpuinfo && echo "patched :)" || echo "unpatched :("
+unpatched :(
+ubuntu@ip-172-31-25-77:~$ dmesg | grep "Kernel/User page tables isolation: enabled" && echo "patched :)" || echo "unpatched :("
+unpatched :(
+
+
+
++   md <- glmnet( X_train, d_train$dep_delayed_15min, family = "binomial", lambda = 0)
++ })
+   user  system elapsed
+  5.892   3.507   5.774
+
+    user  system elapsed
+  5.376   3.566   5.315
+
+   user  system elapsed
+  5.196   3.560   5.130
+
+
+
++   md <- h2o.gbm(x = Xnames, y = "dep_delayed_15min", training_frame = dx_train, distribution = "bernoulli",
++           ntrees = 100, max_depth = 10, learn_rate = 0.1, nbins = 100)
++ })
+  |======================================================================| 100%
+   user  system elapsed
+  0.395   0.001  24.533
+
+   user  system elapsed
+  0.481   0.000  21.937
+
+    user  system elapsed
+  0.334   0.004  22.796 
+  
+
+
++ md <- xgb.train(data = dxgb_train, nthread = n_proc, objective = "binary:logistic",
++             nround = 100, max_depth = 10, eta = 0.1)
++ })
+   user  system elapsed
+373.270   0.268  23.678
+
+   user  system elapsed
+372.643   0.159  23.474
+
+   user  system elapsed
+369.045   0.199  23.333
+
+
+
++ md <- lgb.train(data = dlgb_train, objective = "binary",
++             nrounds = 100, num_leaves = 512, learning_rate = 0.1)
++ })
+
+   user  system elapsed
+163.214   0.109   5.937
+
+   user  system elapsed
+159.849   0.137   5.728
+
+   user  system elapsed
+161.101   0.144   5.528
+
+
+
+
+-----------------------------------------------
+
+
+$ uname -r
+4.14.12-041412-generic
+
+
+buntu@ip-172-31-25-77:~$ grep CONFIG_PAGE_TABLE_ISOLATION=y /boot/config-`uname -r` && echo "patched :)" || echo "unpatched :("
+CONFIG_PAGE_TABLE_ISOLATION=y
+patched :)
+ubuntu@ip-172-31-25-77:~$ grep cpu_insecure /proc/cpuinfo && echo "patched :)" || echo "unpatched :("
+bugs            : cpu_insecure
+bugs            : cpu_insecure
+bugs            : cpu_insecure
+bugs            : cpu_insecure
+.......
+bugs            : cpu_insecure
+bugs            : cpu_insecure
+bugs            : cpu_insecure
+patched :)
+ubuntu@ip-172-31-25-77:~$ dmesg | grep "Kernel/User page tables isolation: enabled" && echo "patched :)" || echo "unpatched :("
+[    0.000000] Kernel/User page tables isolation: enabled
+patched :)
+
+
+
+
++   md <- glmnet( X_train, d_train$dep_delayed_15min, family = "binomial", lambda = 0)
++ })
+   user  system elapsed
+  6.343   3.049   5.768
+
+   user  system elapsed
+  5.688   3.270   5.333
+
+   user  system elapsed
+  5.403   3.344   5.123
+
+  
+  
++   md <- h2o.gbm(x = Xnames, y = "dep_delayed_15min", training_frame = dx_train, distribution = "bernoulli",
++           ntrees = 100, max_depth = 10, learn_rate = 0.1, nbins = 100)
++ })
+  |======================================================================| 100%
+   user  system elapsed
+  0.368   0.008  25.282
+
+   user  system elapsed
+  0.516   0.006  24.017
+
+   user  system elapsed
+  0.345   0.020  25.109
+
+
++ md <- xgb.train(data = dxgb_train, nthread = n_proc, objective = "binary:logistic",
++             nround = 100, max_depth = 10, eta = 0.1)
++ })
+   user  system elapsed
+371.113   0.329  23.400
+
+   user  system elapsed
+372.891   0.198  23.607
+
+   user  system elapsed
+367.140   0.144  23.365
+
+
+
++ md <- lgb.train(data = dlgb_train, objective = "binary",
++             nrounds = 100, num_leaves = 512, learning_rate = 0.1)
+
+   user  system elapsed
+159.339   0.153   5.725
+
+   user  system elapsed
+156.039   0.222   5.605
+
+   user  system elapsed
+159.283   0.130   5.417
+
+
+
+  
