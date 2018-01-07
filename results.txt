@@ -276,4 +276,27 @@ patched :)
 
 
 
+===================================
+
+
+
+ubuntu@ip-172-31-25-77:~/ibench$ uname -r
+4.14.10-041410-generic
+ubuntu@ip-172-31-25-77:~/ibench$ python -m ibench run -b qr --size large --runs 1 --file all.out
+Qr:
+Qr:   N = 10000
+Qr:   elapsed 55.118962 gflops 24.190102
+Qr:   gflops 24.190102
+
+
+
+ubuntu@ip-172-31-25-77:~/ibench$ uname -r
+4.14.12-041412-generic
+ubuntu@ip-172-31-25-77:~/ibench$ python -m ibench run -b qr --size large --runs 1 --file all.out
+Qr:
+Qr:   N = 10000
+Qr:   elapsed 54.623106 gflops 24.409695
+Qr:   gflops 24.409695
+  
+
   
