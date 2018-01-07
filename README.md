@@ -17,13 +17,13 @@ The software versions for h2o, xgboost and lihghtgbm are the same as in the benc
 The code run is [here](run/) (same as in the previous benchmark).
 
 
-Tool        |   Time before   | Time after
-------------|-----------------|--------------
-h2o         |   21.9 - 24.5   |  24.0 - 25.3
-xgboost     |   23.3 - 23.7   |  23.3 - 23.6
-lightgbm    |   5.5 - 5.9     |  5.4-5.7
+GBM implementation    |   Time before   | Time after
+----------------------|-----------------|--------------
+h2o                   |   21.9 - 24.5   |  24.0 - 25.3
+xgboost               |   23.3 - 23.7   |  23.3 - 23.6
+lightgbm              |   5.5 - 5.9     |  5.4-5.7
 
-Detailed results [here](results.txt). So, GBM training is not really affected by the KPTI patch.
+Detailed results [here](results.txt). So, **GBM training is not really affected by the KPTI patch.**
 
 
 glmnet (linear model, not a GBM) is also unaffected (time before 5.1 - 5.7, after 5.1 - 5.7).
