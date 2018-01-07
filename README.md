@@ -26,6 +26,8 @@ lightgbm              |   5.5 - 5.9     |  5.4-5.7
 Detailed results [here](results.txt). So, **GBM training is not really affected by the KPTI patch.**
 
 
+#### Other Results
+
 glmnet (linear model, not a GBM) is also unaffected (time before 5.1 - 5.7, after 5.1 - 5.7).
 
 
