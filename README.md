@@ -1,7 +1,7 @@
 
 ## GBM Meltdown
 
-### Effect of the Linux Kernel Page-Table Isolation (KPTI) Patch (Meltdown Vulnerability) on GBMs
+### The Effect of the Linux Kernel Page-Table Isolation (KPTI) Patch (Meltdown Vulnerability) on GBMs
 
 
 Meltdown is a serious vulnerability in Intel CPUs made public January 3, 2018. The KPTI patch that
