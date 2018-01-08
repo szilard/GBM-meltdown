@@ -299,4 +299,157 @@ Qr:   elapsed 54.623106 gflops 24.409695
 Qr:   gflops 24.409695
   
 
-  
+
+=============================================
+
+Simon Urbanek's R benchmarks (matrix stuff etc.)
+
+http://r.research.att.com/benchmarks/
+http://r.research.att.com/benchmarks/R-benchmark-25.R
+
+
+m5.xlarge
+
+
+> sessionInfo()
+R version 3.2.3 (2015-12-10)
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: Ubuntu 16.04.3 LTS
+
+
+> source("R-benchmark-25.R")
+Loading required package: SuppDists
+
+
+   R Benchmark 2.5
+   ===============
+Number of times each test is run__________________________:  3
+
+
+
+
+
+$ uname -r
+4.14.10-041410-generic
+
+
+   I. Matrix calculation
+   ---------------------
+Creation, transp., deformation of a 2500x2500 matrix (sec):  0.947333333333333
+2400x2400 normal distributed random matrix ^1000____ (sec):  0.619000000000001
+Sorting of 7,000,000 random values__________________ (sec):  0.812
+2800x2800 cross-product matrix (b = a' * a)_________ (sec):  21.14
+Linear regr. over a 3000x3000 matrix (c = a \ b')___ (sec):  7.16066666666667
+                      --------------------------------------------
+                 Trimmed geom. mean (2 extremes eliminated):  1.76605450086588
+
+   II. Matrix functions
+   --------------------
+FFT over 2,400,000 random values____________________ (sec):  0.331999999999998
+Eigenvalues of a 640x640 random matrix______________ (sec):  2.25166666666667
+Determinant of a 2500x2500 random matrix____________ (sec):  3.08733333333333
+Cholesky decomposition of a 3000x3000 matrix________ (sec):  5.81433333333334
+Inverse of a 1600x1600 random matrix________________ (sec):  2.60333333333334
+                      --------------------------------------------
+                Trimmed geom. mean (2 extremes eliminated):  2.62546238125717
+
+   III. Programmation
+   ------------------
+3,500,000 Fibonacci numbers calculation (vector calc)(sec):  0.561666666666658
+Creation of a 3000x3000 Hilbert matrix (matrix calc) (sec):  0.238333333333344
+Grand common divisors of 400,000 pairs (recursion)__ (sec):  0.417666666666662
+Creation of a 500x500 Toeplitz matrix (loops)_______ (sec):  0.300999999999997
+Escoufier's method on a 45x45 matrix (mixed)________ (sec):  0.350999999999999
+                      --------------------------------------------
+                Trimmed geom. mean (2 extremes eliminated):  0.353373905293229
+
+
+Total time for all 15 tests_________________________ (sec):  46.6373333333333
+Overall mean (sum of I, II and III trimmed means/3)_ (sec):  1.17891219259591
+                      --- End of test ---
+
+
+
+
+$ uname -r
+4.14.12-041412-generic
+
+   I. Matrix calculation
+   ---------------------
+Creation, transp., deformation of a 2500x2500 matrix (sec):  0.924
+2400x2400 normal distributed random matrix ^1000____ (sec):  0.617333333333333
+Sorting of 7,000,000 random values__________________ (sec):  0.809666666666666
+2800x2800 cross-product matrix (b = a' * a)_________ (sec):  21.0436666666667
+Linear regr. over a 3000x3000 matrix (c = a \ b')___ (sec):  7.00033333333333
+                      --------------------------------------------
+                 Trimmed geom. mean (2 extremes eliminated):  1.73659674969416
+
+   II. Matrix functions
+   --------------------
+FFT over 2,400,000 random values____________________ (sec):  0.293000000000002
+Eigenvalues of a 640x640 random matrix______________ (sec):  2.27766666666667
+Determinant of a 2500x2500 random matrix____________ (sec):  3.05933333333333
+Cholesky decomposition of a 3000x3000 matrix________ (sec):  5.80833333333334
+Inverse of a 1600x1600 random matrix________________ (sec):  2.53366666666667
+                      --------------------------------------------
+                Trimmed geom. mean (2 extremes eliminated):  2.60388708459893
+
+   III. Programmation
+   ------------------
+3,500,000 Fibonacci numbers calculation (vector calc)(sec):  0.567666666666668
+Creation of a 3000x3000 Hilbert matrix (matrix calc) (sec):  0.240333333333325
+Grand common divisors of 400,000 pairs (recursion)__ (sec):  0.369333333333335
+Creation of a 500x500 Toeplitz matrix (loops)_______ (sec):  0.297666666666667
+Escoufier's method on a 45x45 matrix (mixed)________ (sec):  0.335000000000008
+                      --------------------------------------------
+                Trimmed geom. mean (2 extremes eliminated):  0.332708966784996
+
+
+Total time for all 15 tests_________________________ (sec):  46.177
+Overall mean (sum of I, II and III trimmed means/3)_ (sec):  1.14585204890865
+                      --- End of test ---
+
+
+
+
+
+$ uname -r
+4.4.0-104-generic
+
+   I. Matrix calculation
+   ---------------------
+Creation, transp., deformation of a 2500x2500 matrix (sec):  0.760333333333334
+2400x2400 normal distributed random matrix ^1000____ (sec):  0.574333333333334
+Sorting of 7,000,000 random values__________________ (sec):  0.798333333333333
+2800x2800 cross-product matrix (b = a' * a)_________ (sec):  21.1776666666667
+Linear regr. over a 3000x3000 matrix (c = a \ b')___ (sec):  7.16633333333334
+                      --------------------------------------------
+                 Trimmed geom. mean (2 extremes eliminated):  1.63240694148902
+
+   II. Matrix functions
+   --------------------
+FFT over 2,400,000 random values____________________ (sec):  0.282333333333331
+Eigenvalues of a 640x640 random matrix______________ (sec):  2.27366666666666
+Determinant of a 2500x2500 random matrix____________ (sec):  3.06033333333333
+Cholesky decomposition of a 3000x3000 matrix________ (sec):  5.76833333333334
+Inverse of a 1600x1600 random matrix________________ (sec):  2.50566666666667
+                      --------------------------------------------
+                Trimmed geom. mean (2 extremes eliminated):  2.59302243504038
+
+   III. Programmation
+   ------------------
+3,500,000 Fibonacci numbers calculation (vector calc)(sec):  0.559000000000007
+Creation of a 3000x3000 Hilbert matrix (matrix calc) (sec):  0.154666666666676
+Grand common divisors of 400,000 pairs (recursion)__ (sec):  0.366666666666665
+Creation of a 500x500 Toeplitz matrix (loops)_______ (sec):  0.295333333333322
+Escoufier's method on a 45x45 matrix (mixed)________ (sec):  0.335999999999984
+                      --------------------------------------------
+                Trimmed geom. mean (2 extremes eliminated):  0.331365831885329
+
+
+Total time for all 15 tests_________________________ (sec):  46.079
+Overall mean (sum of I, II and III trimmed means/3)_ (sec):  1.11938842228053
+                      --- End of test ---
+
+
+                      

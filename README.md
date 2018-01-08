@@ -30,5 +30,8 @@ Detailed results [here](results.txt). So, **GBM training is not really affected 
 
 glmnet (linear model, not a GBM) is also unaffected (time before 5.1 - 5.7 sec, after 5.1 - 5.7 sec).
 
-
+No impact on Simon Urbanek's [R benchmark](https://r.research.att.com/benchmarks/) 
+(containing various matrix operations, FFT, sorting etc.) either. Time before 46.6 sec, time after 46.1 sec, 
+see the breakdown/results e.g. random matrix, sorting, matrix cross-product, linear regression, 
+eigenvalue, determinant, Cholesky etc. [here](results.txt).
 
