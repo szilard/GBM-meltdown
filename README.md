@@ -23,7 +23,7 @@ h2o                   |   21.9 - 24.5        |  24.0 - 25.3
 xgboost               |   23.3 - 23.7        |  23.3 - 23.6
 lightgbm              |   5.5 - 5.9          |  5.4-5.7
 
-Detailed results [here](results.txt). So, **GBM training is not really affected by the KPTI patch.**
+Detailed results [here](results-GBM.txt). So, **GBM training is not really affected by the KPTI patch.**
 
 
 #### Other Results
@@ -34,5 +34,5 @@ No impact on Simon Urbanek's [R benchmark](https://r.research.att.com/benchmarks
 (containing various matrix operations, FFT, sorting etc.) either. Time before 46.6 sec, time after 46.1 sec
 (on m5.xlarge), 
 see the breakdown e.g. random matrix, sorting, matrix cross-product, linear regression, 
-eigenvalue, determinant, Cholesky etc. [here](results.txt).
+eigenvalue, determinant, Cholesky etc. [here](results-R-Simon.txt).
 
