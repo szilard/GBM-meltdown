@@ -32,7 +32,7 @@ glmnet (linear model, not a GBM) is also unaffected (time before 5.1 - 5.7 sec, 
 
 No impact on Simon Urbanek's [R benchmark](https://r.research.att.com/benchmarks/) 
 (containing various matrix operations, FFT, sorting etc.) either. Time before 46.6 sec, time after 46.1 sec
-(on m5.xlarge), 
+(or 6.4 sec vs 6.3 sec with optimized BLAS) (on m5.xlarge), 
 see the breakdown e.g. random matrix, sorting, matrix cross-product, linear regression, 
 eigenvalue, determinant, Cholesky etc. [here](results-R-Simon.txt).
 

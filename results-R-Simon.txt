@@ -154,8 +154,117 @@ Overall mean (sum of I, II and III trimmed means/3)_ (sec):  1.11938842228053
 
 
 
+sudo apt-get install libopenblas-base
+
+ii  libopenblas-base                     0.2.18-1ubuntu1                            amd64        Optimized BLAS (linear algebra) library (shared library)
+
+Xenial (16.04) libopenblas-base
+Optimized BLAS (linear algebra) library (shared library)
+ OpenBLAS is an optimized BLAS library based on GotoBLAS2 1.13 BSD version.
 
 
+dpkg -L libopenblas-base
+/.
+/usr
+/usr/lib
+/usr/lib/openblas-base
+/usr/lib/openblas-base/libblas.so.3
+/usr/lib/openblas-base/liblapack.so.3
+/usr/lib/libopenblasp-r0.2.18.so
+/usr/share
+/usr/share/doc
+/usr/share/doc/libopenblas-base
+/usr/share/doc/libopenblas-base/copyright
+/usr/share/doc/libopenblas-base/changelog.Debian.gz
+/usr/share/doc/libopenblas-base/README.Debian
+/usr/share/doc/libopenblas-base/TODO.Debian
+/usr/lib/libopenblas.so.0
+
+
+
+
+
+$ uname -msr
+Linux 4.14.10-041410-generic x86_64
+
+
+
+   I. Matrix calculation
+   ---------------------
+Creation, transp., deformation of a 2500x2500 matrix (sec):  0.938
+2400x2400 normal distributed random matrix ^1000____ (sec):  0.614666666666666
+Sorting of 7,000,000 random values__________________ (sec):  0.811666666666668
+2800x2800 cross-product matrix (b = a' * a)_________ (sec):  0.380666666666668
+Linear regr. over a 3000x3000 matrix (c = a \ b')___ (sec):  0.241333333333332
+                      --------------------------------------------
+                 Trimmed geom. mean (2 extremes eliminated):  0.574805269259868
+
+   II. Matrix functions
+   --------------------
+FFT over 2,400,000 random values____________________ (sec):  0.350333333333334
+Eigenvalues of a 640x640 random matrix______________ (sec):  0.512999999999999
+Determinant of a 2500x2500 random matrix____________ (sec):  0.232666666666668
+Cholesky decomposition of a 3000x3000 matrix________ (sec):  0.276666666666666
+Inverse of a 1600x1600 random matrix________________ (sec):  0.211000000000003
+                      --------------------------------------------
+                Trimmed geom. mean (2 extremes eliminated):  0.282525393810648
+
+   III. Programmation
+   ------------------
+3,500,000 Fibonacci numbers calculation (vector calc)(sec):  0.561333333333335
+Creation of a 3000x3000 Hilbert matrix (matrix calc) (sec):  0.236333333333332
+Grand common divisors of 400,000 pairs (recursion)__ (sec):  0.448666666666668
+Creation of a 500x500 Toeplitz matrix (loops)_______ (sec):  0.329666666666668
+Escoufier's method on a 45x45 matrix (mixed)________ (sec):  0.319000000000003
+                      --------------------------------------------
+                Trimmed geom. mean (2 extremes eliminated):  0.361351483235071
+
+
+Total time for all 15 tests_________________________ (sec):  6.46500000000001
+Overall mean (sum of I, II and III trimmed means/3)_ (sec):  0.388599905313583
+                      --- End of test ---
+
+
+
+$ uname -msr
+Linux 4.14.12-041412-generic x86_64
+   
+
+
+   I. Matrix calculation
+   ---------------------
+Creation, transp., deformation of a 2500x2500 matrix (sec):  0.918333333333334
+2400x2400 normal distributed random matrix ^1000____ (sec):  0.617000000000001
+Sorting of 7,000,000 random values__________________ (sec):  0.808333333333334
+2800x2800 cross-product matrix (b = a' * a)_________ (sec):  0.372666666666666
+Linear regr. over a 3000x3000 matrix (c = a \ b')___ (sec):  0.235666666666668
+                      --------------------------------------------
+                 Trimmed geom. mean (2 extremes eliminated):  0.570687990891545
+
+   II. Matrix functions
+   --------------------
+FFT over 2,400,000 random values____________________ (sec):  0.319333333333333
+Eigenvalues of a 640x640 random matrix______________ (sec):  0.498666666666667
+Determinant of a 2500x2500 random matrix____________ (sec):  0.227000000000002
+Cholesky decomposition of a 3000x3000 matrix________ (sec):  0.277333333333336
+Inverse of a 1600x1600 random matrix________________ (sec):  0.201333333333331
+                      --------------------------------------------
+                Trimmed geom. mean (2 extremes eliminated):  0.271909299503553
+
+   III. Programmation
+   ------------------
+3,500,000 Fibonacci numbers calculation (vector calc)(sec):  0.560333333333332
+Creation of a 3000x3000 Hilbert matrix (matrix calc) (sec):  0.240999999999997
+Grand common divisors of 400,000 pairs (recursion)__ (sec):  0.423333333333334
+Creation of a 500x500 Toeplitz matrix (loops)_______ (sec):  0.308666666666665
+Escoufier's method on a 45x45 matrix (mixed)________ (sec):  0.316000000000003
+                      --------------------------------------------
+                Trimmed geom. mean (2 extremes eliminated):  0.345636628578202
+
+
+Total time for all 15 tests_________________________ (sec):  6.325
+Overall mean (sum of I, II and III trimmed means/3)_ (sec):  0.377121117125466
+                      --- End of test ---
 
 
 
