@@ -1,0 +1,134 @@
+
+
+m5.xlarge
+
+
+git clone https://github.com/IntelPython/ibench
+pip install -e .
+   
+
+python -m ibench run -b all --size small --runs 1
+
+
+
+>>> import numpy as np
+>>> np.__config__.show()
+lapack_opt_info:
+    libraries = ['openblas', 'openblas']
+    library_dirs = ['/usr/local/lib']
+    define_macros = [('HAVE_CBLAS', None)]
+    language = c
+blas_opt_info:
+    libraries = ['openblas', 'openblas']
+    library_dirs = ['/usr/local/lib']
+    define_macros = [('HAVE_CBLAS', None)]
+    language = c
+openblas_info:
+    libraries = ['openblas', 'openblas']
+    library_dirs = ['/usr/local/lib']
+    define_macros = [('HAVE_CBLAS', None)]
+    language = c
+blis_info:
+  NOT AVAILABLE
+openblas_lapack_info:
+    libraries = ['openblas', 'openblas']
+    library_dirs = ['/usr/local/lib']
+    define_macros = [('HAVE_CBLAS', None)]
+    language = c
+lapack_mkl_info:
+  NOT AVAILABLE
+blas_mkl_info:
+  NOT AVAILABLE
+
+
+
+$ uname -msr
+Linux 4.14.10-041410-generic x86_64
+
+
+Lu:
+Lu:   N = 20000
+Lu:   elapsed 93.353421 gflops 57.130561
+Lu:   gflops 57.130561
+Cholesky:
+Cholesky:   N = 10000
+Cholesky:   elapsed 4.945117 gflops 67.406562
+Cholesky:   gflops 67.406562
+Inv:
+Inv:   N = 10000
+Inv:   elapsed 35.388679 gflops 56.515249
+Inv:   gflops 56.515249
+Fft:
+Fft:   N = 520000
+Fft:   elapsed 16.463849 gflops 2.998642
+Fft:   gflops 2.998642
+Det:
+Det:   N = 15000
+Det:   elapsed 31.721318 gflops 70.930218
+Det:   gflops 70.930218
+Svd:
+Svd:   N = 5000
+Svd:   elapsed 50.126222 gflops 3.324940
+Svd:   gflops 3.324940
+Dot:
+Dot:   N = 5000
+Dot:   elapsed 3.406115 gflops 73.397408
+Dot:   gflops 73.397408
+Qr:
+Qr:   N = 5000
+Qr:   elapsed 5.311656 gflops 31.377534
+Qr:   gflops 31.377534
+
+
+
+
+
+$ uname -msr
+Linux 4.14.12-041412-generic x86_64
+
+
+Lu:
+Lu:   N = 20000
+Lu:   elapsed 93.501617 gflops 57.040012
+Lu:   gflops 57.040012
+Cholesky:
+Cholesky:   N = 10000
+Cholesky:   elapsed 4.914842 gflops 67.821782
+Cholesky:   gflops 67.821782
+Inv:
+Inv:   N = 10000
+Inv:   elapsed 35.254251 gflops 56.730747
+Inv:   gflops 56.730747
+Fft:
+Fft:   N = 520000
+Fft:   elapsed 16.695394 gflops 2.957055
+Fft:   gflops 2.957055
+Det:
+Det:   N = 15000
+Det:   elapsed 31.677425 gflops 71.028500
+Det:   gflops 71.028500
+Svd:
+Svd:   N = 5000
+Svd:   elapsed 50.328384 gflops 3.311584
+Svd:   gflops 3.311584
+Dot:
+Dot:   N = 5000
+Dot:   elapsed 3.423547 gflops 73.023679
+Dot:   gflops 73.023679
+Qr:
+Qr:   N = 5000
+Qr:   elapsed 5.355050 gflops 31.123271
+Qr:   gflops 31.123271
+
+
+
+
+
+
+
+
+
+
+
+
+  
